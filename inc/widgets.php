@@ -44,8 +44,6 @@ if ( ! function_exists( 'understrap_slbd_count_widgets' ) ) {
 	}
 }
 
-add_action( 'widgets_init', 'understrap_widgets_init' );
-
 if ( ! function_exists( 'understrap_widgets_init' ) ) {
 	/**
 	 * Initializes themes widgets.
@@ -72,44 +70,72 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 		) );
 
 		register_sidebar( array(
-			'name'          => __( 'Hero Slider', 'understrap' ),
-			'id'            => 'hero',
-			'description'   => 'Hero slider area. Place two or more widgets here and they will slide!',
-			'before_widget' => '<div class="carousel-item">',
-			'after_widget'  => '</div>',
-			'before_title'  => '',
-			'after_title'   => '',
-		) );
-
-		register_sidebar( array(
-			'name'          => __( 'Hero Canvas', 'understrap' ),
-			'id'            => 'herocanvas',
-			'description'   => 'Full size canvas hero area for Bootstrap and other custom HTML markup',
-			'before_widget' => '',
-			'after_widget'  => '',
-			'before_title'  => '',
-			'after_title'   => '',
-		) );
-
-		register_sidebar( array(
-			'name'          => __( 'Top Full', 'understrap' ),
-			'id'            => 'statichero',
-			'description'   => 'Full top widget with dynmic grid',
-		    'before_widget'  => '<div id="%1$s" class="static-hero-widget %2$s '. understrap_slbd_count_widgets( 'statichero' ) .'">', 
-		    'after_widget'   => '</div><!-- .static-hero-widget -->', 
-		    'before_title'   => '<h3 class="widget-title">', 
-		    'after_title'    => '</h3>',
-		) );
-
-		register_sidebar( array(
-			'name'          => __( 'Bottom Full', 'understrap' ),
+			'name'          => __( 'Footer Full', 'understrap' ),
 			'id'            => 'footerfull',
-			'description'   => 'Full bottom widget with dynmic grid',
+			'description'   => 'Widget area below main content and above footer',
 		    'before_widget'  => '<div id="%1$s" class="footer-widget %2$s '. understrap_slbd_count_widgets( 'footerfull' ) .'">', 
 		    'after_widget'   => '</div><!-- .footer-widget -->', 
 		    'before_title'   => '<h3 class="widget-title">', 
 		    'after_title'    => '</h3>', 
 		) );
 
+		$num_columns = intval( get_theme_mod( 'tygershark_header_topbar_num_columns', '2' ) );
+		$footer_num_cols = intval( get_theme_mod( 'tygershark_footer_columns', '4' ) );
+
+		for ( $i = 1; $i <= $num_columns; $i++ ) {
+			register_sidebar( array(
+				'name'          => __( 'Top Bar ' . $i, 'understrap' ),
+				'id'            => 'top-bar-' . $i,
+				'description'   => 'Top bar widget area ' . $i,
+			    'before_widget' => '',
+				'after_widget'  => '',
+			    'before_title'   => '<h3 class="widget-title">', 
+			    'after_title'    => '</h3>', 
+			) );
+		}
+
+		for ( $i = 1; $i <= $footer_num_cols; $i++ ) {
+			register_sidebar( array(
+				'name'          => __( 'Footer col ' . $i, 'understrap' ),
+				'id'            => 'footer-col-' . $i,
+				'description'   => 'Footer col ' . $i,
+			    'before_widget' => '',
+				'after_widget'  => '',
+			    'before_title'   => '<h3 class="widget-title">', 
+			    'after_title'    => '</h3>', 
+			) );
+		}
+
+		register_sidebar( array(
+			'name'          => __( 'Header Bar 1', 'understrap' ),
+			'id'            => 'header-1',
+			'description'   => 'Header widget area 1',
+		    'before_widget' => '<aside id="%1$s" class="header-widget-1 header-widget widget %2$s">',
+			'after_widget'  => '</aside>',
+		    'before_title'   => '<h3 class="widget-title">', 
+		    'after_title'    => '</h3>', 
+		) );
+
+		register_sidebar( array(
+			'name'          => __( 'Header Bar 2', 'understrap' ),
+			'id'            => 'header-2',
+			'description'   => 'Header widget area 2',
+		    'before_widget' => '<aside id="%1$s" class="header-widget-2 header-widget widget %2$s">',
+			'after_widget'  => '</aside>',
+		    'before_title'   => '<h3 class="widget-title">', 
+		    'after_title'    => '</h3>', 
+		) );
+
+		register_sidebar( array(
+			'name'          => __( 'Footer Copyright', 'understrap' ),
+			'id'            => 'footer-copyright',
+			'description'   => 'Footer copyright section',
+		    'before_widget' => '',
+			'after_widget'  => '',
+		    'before_title'   => '<h3 class="widget-title">', 
+		    'after_title'    => '</h3>', 
+		) );
+
 	}
 } // endif function_exists( 'understrap_widgets_init' ).
+add_action( 'widgets_init', 'understrap_widgets_init' );
