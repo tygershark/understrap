@@ -1,0 +1,14 @@
+#wp-admin-bar-ts-override-css .ab-item {
+	background: none;
+	color: initial;
+}
+
+#css-override-form input {
+	line-height: 20px;
+	border: none;
+	padding: 0 5px;
+}
+
+#css-override-form input[type="submit"] {
+	background: #eee;
+}
