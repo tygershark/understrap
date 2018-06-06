@@ -39,7 +39,7 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 		}
 
 		if ( is_user_logged_in() ) {
-			wp_enqueue_style( 'ts-admin', get_stylesheet_directory_uri() . '/inc/admin.css', [], $the_theme->get( 'Version' ) );
+			wp_enqueue_style( 'ts-admin', get_template_directory_uri() . '/inc/admin.css', [], $the_theme->get( 'Version' ) );
 		}
 	}
 } // endif function_exists( 'understrap_scripts' ).
