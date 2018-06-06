@@ -1,0 +1,91 @@
+$primary-color: #3c4154;
+$secondary-color: #00837e;
+
+#primary-nav {
+	background-color: #f7f9f8 !important;
+
+	li {
+		a {
+			color: $primary-color;
+			font-size: 16px;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+	}
+}
+
+#main-menu > li a {
+	padding: 0 25px;
+}
+
+#menu-top-header {
+	text-align: right;
+	list-style-type: none;
+	margin: 0;
+
+	li {
+		display: inline-block;
+	}
+}
+
+#top-bar {
+	background: #fff;
+	min-height: 30px;
+
+	a {
+		color: $secondary-color;
+		font-size: 14px;
+		font-weight: 500;
+		text-transform: uppercase;
+		line-height: 30px;
+		display: block;
+		padding: 0 10px;
+	}
+
+	.header-phone {
+		a {
+			background: #00837e;
+			padding: 0 15px;
+			color: #fff;
+		}
+	}
+}
+
+#home-hero-layout {
+	padding: 160px 0;
+
+	h3 {
+		color: $primary-color;
+		font-size: 40px;
+		font-weight: 300;
+	}
+
+	.panel-grid-cell:first-child {
+		.ow-button-base {
+			text-align: right;
+			padding-right: 20px;
+		}
+	}
+
+	.panel-grid-cell:last-child {
+		.ow-button-base {
+			text-align: left;
+			padding-left: 20px;
+		}
+	}
+}
+
+.so-widget-sow-button {
+	a {
+		border: none;
+		border-radius: 15px;
+		padding: 0 15px;
+		text-transform: uppercase;
+		line-height: 30px;
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: 1px;
+		box-shadow: none;
+		background: $secondary-color;
+	}
+}

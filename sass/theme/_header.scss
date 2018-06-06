@@ -1,0 +1,51 @@
+#top-bar {
+	background: #333;
+	min-height: 40px;
+}
+
+#navbarNavDropdown {
+	justify-content: flex-end
+}
+
+.navbar-brand.custom-logo-link {
+	width: 220px;
+	padding: 20px 0;
+}
+
+.dropdown-menu {
+	border: none;
+	border-radius: 0;
+	padding: 0;
+}
+
+.header-top {
+	background: #343a40;
+}
+
+.nav-position-left {
+	#navbarNavDropdown {
+		justify-content: flex-start;
+	}
+}
+
+.nav-position-right {
+	#navbarNavDropdown {
+		justify-content: flex-end;
+	}
+}
+
+.nav-position-middle {
+	#navbarNavDropdown {
+		justify-content: center;
+	}
+}
+
+.logo-col {
+	text-align: center;
+}
+
+@media all and (min-width: 768px) {
+	.dropdown:hover > .dropdown-menu {
+		display: block;
+	}
+}
