@@ -21,7 +21,7 @@ $enable_copyright = 'show' === get_theme_mod( 'tygershark_footer_enable_copyrigh
 
 		<div class="row">
 			<?php for ( $i = 1; $i <= $footer_num_cols; $i++ ) : ?>
-				<div class="col footer-col-<?php echo $i; ?>">
+				<div class="col footer-col footer-col-<?php echo $i; ?>">
 					<?php if ( is_active_sidebar( 'footer-col-' . $i ) ) : ?>
 						<?php dynamic_sidebar( 'footer-col-' . $i ); ?>
 					<?php endif; ?>
