@@ -11,6 +11,21 @@ $the_theme = wp_get_theme();
 $container = get_theme_mod( 'understrap_container_type' );
 $footer_num_cols = intval( get_theme_mod( 'tygershark_footer_columns', '4' ) );
 $enable_copyright = 'show' === get_theme_mod( 'tygershark_footer_enable_copyright', 'show' );
+
+switch ( $footer_num_cols ) {
+	case 4:
+		$footer_col_classes = 'col-sm-6 col-md-3';
+		break;
+	case 3:
+		$footer_col_classes = 'col-md-4';
+		break;
+	case 2:
+		$footer_col_classes = 'col-sm-6';
+		break;
+	default:
+		$footer_col_classes = 'col';
+		break;
+}
 ?>
 
 <?php get_sidebar( 'footerfull' ); ?>
@@ -21,7 +36,7 @@ $enable_copyright = 'show' === get_theme_mod( 'tygershark_footer_enable_copyrigh
 
 		<div class="row">
 			<?php for ( $i = 1; $i <= $footer_num_cols; $i++ ) : ?>
-				<div class="col footer-col footer-col-<?php echo $i; ?>">
+				<div class="footer-col footer-col-<?php echo $i; ?> <?php echo $footer_col_classes; ?>">
 					<?php if ( is_active_sidebar( 'footer-col-' . $i ) ) : ?>
 						<?php dynamic_sidebar( 'footer-col-' . $i ); ?>
 					<?php endif; ?>
