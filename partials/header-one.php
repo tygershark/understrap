@@ -1,4 +1,4 @@
-<nav id="primary-nav" class="navbar navbar-expand-md">
+<nav id="primary-nav" class="navbar navbar-light navbar-expand-lg header-style-one">
 
 		<?php if ( 'container' == $container ) : ?>
 			<div class="container" >
