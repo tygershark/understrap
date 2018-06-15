@@ -233,7 +233,37 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 						'4' => __( '4', 'understrap' )
 					),
 					'priority'    => '20',
-					'active_callback' => 'tygershark_header_topbar_num_columns_active_callback'
+					'active_callback' => 'tygershark_header_topbar_active_callback'
+				)
+			)
+		);
+
+		$wp_customize->add_setting( 'tygershark_header_topbar_container', array(
+			'default'           => 'container',
+			'type'              => 'theme_mod',
+			'sanitize_callback' => 'understrap_theme_slug_sanitize_select',
+			'capability'        => 'edit_theme_options',
+			'default' 			=> 'on',
+			'transport'			=> 'refresh'
+		) );
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'tygershark_header_topbar_container', array(
+					'label'       => __( 'Top Bar Container', 'understrap' ),
+					'description' => __( 'Whether the top bar content is in a container or not',
+					'understrap' ),
+					'section'     => 'tygershark_theme_header_options',
+					'settings'    => 'tygershark_header_topbar_container',
+					'type'        => 'select',
+					'sanitize_callback' => 'understrap_theme_slug_sanitize_select',
+					'choices'     => array(
+						'on' => __( 'Yes', 'understrap' ),
+						'off' => __( 'No', 'understrap' )
+					),
+					'priority'    => '20',
+					'active_callback' => 'tygershark_header_topbar_active_callback'
 				)
 			)
 		);
@@ -320,10 +350,10 @@ function tygershark_header_navigation_position_active_callback() {
 }
 
 /**
- * Whether to display the top bar num columns option or not
+ * Is the top bar enabled or not
  * @return bool Yes/no
  */
-function tygershark_header_topbar_num_columns_active_callback() {
+function tygershark_header_topbar_active_callback() {
 	return 'show' === get_theme_mod( 'tygershark_header_enable_topbar', 'show' );
 }
 
